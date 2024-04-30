@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Container = styled.div`
   display: flex;
@@ -59,8 +60,10 @@ const Links = styled.div`
   margin-left: 50px;
 `;
 
-const Link = styled.span`
+const LinkItem = styled(Link)`
   margin-left: 30px;
+  text-decoration: none; // Add this line to remove default underline
+  color: inherit; // Add this line to inherit parent color
 `;
 
 const SignIn = () => {
@@ -68,22 +71,27 @@ const SignIn = () => {
     <Container>
       <Wrapper>
         <Title>Sign in</Title>
-        <SubTitle>to continue to LamaTube</SubTitle>
+        <SubTitle>to continue to ReviewTube</SubTitle>
         <Input placeholder="username" />
         <Input type="password" placeholder="password" />
-        <Button>Sign in</Button>
+        {/* Change Button to LinkItem */}
+        <LinkItem to="/createprojectpage">
+          <Button>Sign in</Button>
+        </LinkItem>
         <Title>or</Title>
         <Input placeholder="username" />
         <Input placeholder="email" />
         <Input type="password" placeholder="password" />
-        <Button>Sign up</Button>
+        <LinkItem to="/createprojectpage"> {/* Change Link to LinkItem */}
+          <Button>Sign up</Button>
+        </LinkItem>
       </Wrapper>
       <More>
         English(USA)
         <Links>
-          <Link>Help</Link>
-          <Link>Privacy</Link>
-          <Link>Terms</Link>
+          <LinkItem to="/help">Help</LinkItem> {/* Change Link to LinkItem */}
+          <LinkItem to="/privacy">Privacy</LinkItem> {/* Change Link to LinkItem */}
+          <LinkItem to="/terms">Terms</LinkItem> {/* Change Link to LinkItem */}
         </Links>
       </More>
     </Container>
